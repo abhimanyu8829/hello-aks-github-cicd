@@ -1,25 +1,19 @@
-# Empty deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-app
 spec:
-  replicas: 2
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 0
-      maxSurge: 1
+  replicas: 1
   selector:
     matchLabels:
-      app: hello
+      app: hello-app
   template:
     metadata:
       labels:
-        app: hello
+        app: hello-app
     spec:
       containers:
-      - name: hello
+      - name: hello-app
         image: abhimanyu8829/hello-aks:latest
         ports:
         - containerPort: 80
